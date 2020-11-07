@@ -9,5 +9,15 @@ terraform {
 }
 
 provider "github" {
+    token = var.github_token
     owner = "klssmith"
+}
+
+variable "github_token" {
+    type        = string
+    description = "A GitHub token with repo scope"
+    validation {
+        condition     = length(var.github_token) == 40
+        error_message = "I think you got the GitHub token wrong..."
+    }
 }
