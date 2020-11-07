@@ -21,3 +21,15 @@ variable "github_token" {
         error_message = "I think you got the GitHub token wrong..."
     }
 }
+
+resource "github_repository" "repo" {
+    name                   = "draft"
+    description            = "🤖 This repo was auto-generated with Terraform 🤖"
+    topics                 = ["stuff"]
+    allow_squash_merge     = false
+    allow_merge_commit     = false
+    allow_rebase_merge     = true
+    delete_branch_on_merge = true
+    has_projects           = false
+    auto_init              = true
+}
